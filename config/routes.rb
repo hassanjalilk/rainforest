@@ -1,6 +1,13 @@
 Rainforest::Application.routes.draw do
  
-resources :products
+#   get 'user/new'
+
+#   get 'user/create'
+
+# resources :products
+
+ resources :products
+  resources :users, :only => [:new, :create]
 
   # get 'products/index'
 
