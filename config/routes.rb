@@ -1,5 +1,11 @@
 Rainforest::Application.routes.draw do
  
+  # get 'sessions/new'
+
+  # get 'sessions/create'
+
+  # get 'sessions/destroy'
+
 #   get 'user/new'
 
 #   get 'user/create'
@@ -8,6 +14,8 @@ Rainforest::Application.routes.draw do
 
  resources :products
   resources :users, :only => [:new, :create]
+
+  resources :sessions, :only => [:new, :create, :destroy]
 
   # get 'products/index'
 
