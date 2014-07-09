@@ -2,10 +2,14 @@
 	
 <!--  Seach function -->
 
-	<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "search" %>
-		<%end%>
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div id="products">
+  <%= render @products %>
+</div>
 
 		<!--  - - - - - - - - - - - - - - - - - - - - - - -  - -->
 
@@ -31,11 +35,9 @@
   });
 </script>
 
-		<!--  - - - - - - - - - - - - - - - - - - - - - - -  - ->
+		 <!-- - - - - - - - - - - - - - - - - - - - - - - -  - -> -->
 
-	<div id="products">
-  <%= render @products %>
-</div>
+
 
 <h1> Products </h1>
 
@@ -46,6 +48,7 @@
 
 <div>
 	<%= link_to "Log In" , users_path %>
+
 </div>
 
 <div>
@@ -54,7 +57,7 @@
 
 <% @products.each do |product| %>
 	<p><%= product[:name] %>, <%= product[:description]%>, <%= product[:price_in_cents] %> </p>
-<% end %>
+<% end %> -->
 
 
 	
