@@ -2,9 +2,12 @@ class ProductsController < ApplicationController
 
    before_filter :ensure_logged_in, :only => [:show]
 
-   
   def index
-  	@products = Product.all
+    @products = if params[:search]
+      Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+    else
+      Product.all
+    end
   end
 
   def show
@@ -46,6 +49,7 @@ class ProductsController < ApplicationController
   	@product.destroy
   	redirect_to @product_path
   end
+
 
   private
 
