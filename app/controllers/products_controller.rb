@@ -3,8 +3,8 @@ class ProductsController < ApplicationController
    before_filter :ensure_logged_in, :only => [:show]
 
   def index
-    @products = if params[:search]
-      Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+    if params[:search]
+      @products = Product.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
     else
       @products = Product.order('products.created_at DESC').page(params[:page])
     end
